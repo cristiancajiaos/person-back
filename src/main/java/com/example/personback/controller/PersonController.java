@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -34,5 +35,10 @@ public class PersonController {
   @GetMapping("{id}")
   public Optional<Person> getPersonById(@PathVariable("id") Long id) {
     return personService.getPersonById(id);
+  }
+
+  @DeleteMapping("{id}")
+  public void deletePersonById(@PathVariable("id") Long id) {
+    personService.deletePersonById((id));
   }
 }
